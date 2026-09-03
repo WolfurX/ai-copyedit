@@ -43,7 +43,7 @@ Always show the rewrite to the user. For file edits, show a diff or the changed 
 4. **Identify AI patterns.** Scan for the 37 patterns listed below.
 5. **Rewrite problematic sections** following the editing guardrails. Preserve meaning: never invent claims, examples, stats, or opinions; if something is unclear, ask. Match the intended tone (formal, casual, technical, and so on); if a voice sample was provided, match it specifically.
 6. **Add soul.** Removing bad patterns is only half the job; the rewrite also needs real personality. See Personality and soul below.
-7. **Do a final anti-AI pass.** Ask yourself: "What makes the below so obviously AI generated?" Answer briefly with any remaining tells, then revise one more time.
+7. **Do a final anti-AI pass.** Reread the rewrite asking what still reads as AI generated, fix those lines, and keep this pass in your reasoning rather than in the reply.
 8. **Check the result:** it should sound natural read aloud, vary sentence structure, use specific details over vague claims, and use simple constructions (is/are/has) where appropriate.
 9. **Deliver** per the Output format. If the text came from a file, apply the edit with Edit (targeted) or Write (full rewrite) and show the user what changed.
 
@@ -603,10 +603,8 @@ Grouped by what they poison: **substance** (1-8), **vocabulary** (9-11), **gramm
 ## Output format
 
 For an **edit**, provide:
-1. Draft rewrite
-2. "What makes the below so obviously AI generated?" (brief bullets)
-3. Final rewrite
-4. A brief summary of changes made (optional, if helpful)
+1. The rewrite
+2. A brief list of what changed, by pattern name
 
 For a **detect** request, provide the findings report only: each pattern found, with its name, the quoted line, and the fix in a few words. Then offer the edit.
 
@@ -630,30 +628,14 @@ For a **detect** request, provide the findings report only: each pattern found, 
 >
 > In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you'd like me to expand on any section!
 
-**Draft rewrite:**
-> AI coding assistants speed up some tasks. In a 2024 study by Google, developers using Codex completed simple functions 55% faster than a control group, but showed no improvement on debugging or architectural decisions.
->
-> The tools are good at boilerplate: config files, test scaffolding, repetitive refactors. They are bad at knowing when they are wrong. I have mass-accepted suggestions that compiled, passed lint, and still did the wrong thing because I stopped paying attention.
->
-> Mira, an engineer at a fintech startup I interviewed, said she uses Copilot "like autocomplete for boring code" but reviews every line before committing. Jake, a senior dev at a larger company, disabled it after it kept suggesting patterns from a deprecated internal library.
->
-> The productivity claims are hard to verify. GitHub says Copilot users "accept 30% of suggestions," but acceptance is not correctness, and correctness is not value. The 2024 Uplevel study found no statistically significant difference in pull-request throughput between teams with and without AI assistants.
->
-> None of this means the tools are useless. It means they are tools. They do not replace judgment, and they do not eliminate the need for tests. If you do not have tests, you cannot tell whether the suggestion is right.
-
-**What makes the below so obviously AI generated?**
-- The rhythm is still a bit too tidy (clean contrasts, evenly paced paragraphs).
-- The named people and study citations can read like plausible-but-made-up placeholders unless they're real and sourced.
-- The closer leans a touch slogan-y ("If you do not have tests...") rather than sounding like a person talking.
-
-**Now make it not obviously AI generated.**
+**Rewrite:**
 > AI coding assistants can make you faster at the boring parts. Not everything. Definitely not architecture.
 >
 > They're great at boilerplate: config files, test scaffolding, repetitive refactors. They're also great at sounding right while being wrong. I've accepted suggestions that compiled, passed lint, and still missed the point because I stopped paying attention.
 >
 > People I talk to tend to land in two camps. Some use it like autocomplete for chores and review every line. Others disable it after it keeps suggesting patterns they don't want. Both feel reasonable.
 >
-> The productivity metrics are slippery. GitHub can say Copilot users "accept 30% of suggestions," but acceptance isn't correctness, and correctness isn't value. If you don't have tests, you're basically guessing.
+> The productivity metrics are slippery. Vendors publish acceptance rates, but acceptance isn't correctness, and correctness isn't value. If you don't have tests, you're basically guessing.
 
 **Changes made:**
 - Removed chatbot artifacts ("Great question!", "I hope this helps!", "Let me know if...")
