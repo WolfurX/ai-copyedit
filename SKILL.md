@@ -23,9 +23,9 @@ Also apply this skill to **your own** output when writing user-facing prose such
 
 ## How the text arrives
 
-1. **Inline.** The user pastes the text into the message. Work on it in place and reply with the rewrite.
-2. **File.** The user points at a file. Use Read to load it, then Edit (targeted) or Write (full rewrite) to apply changes. For a markdown doc, a targeted Edit per section is cleaner than rewriting the whole file.
-3. **Voice calibration sample.** The user provides a sample of their own writing (inline or by file path) and asks you to match it. Read the sample first, then rewrite. See Voice calibration below.
+1. The user pastes the text into the message. Work on it in place and reply with the rewrite.
+2. The user points at a file. Use Read to load it, then Edit (targeted) or Write (full rewrite) to apply changes. For a markdown doc, a targeted Edit per section is cleaner than rewriting the whole file.
+3. The user provides a voice calibration sample of their own writing (inline or by file path) and asks you to match it. Read the sample first, then rewrite. See Voice calibration below.
 
 Always show the rewrite to the user. For file edits, show a diff or the changed section instead of silently overwriting.
 
@@ -37,15 +37,15 @@ Always show the rewrite to the user. For file edits, show a diff or the changed 
 
 ## Workflow
 
-1. **Read the full input first** (use Read if it's a file). Identify the core point; if you cannot, ask the user.
-2. **Note 3-5 voice signals to preserve** (vocabulary, cadence, bluntness, humor, hedging, digressions). Keep this note internal.
-3. **For a detect request,** return the findings report described above and stop.
-4. **Identify AI patterns.** Scan for the 43 patterns listed below.
-5. **Rewrite problematic sections** following the editing guardrails. Preserve meaning: never invent claims, examples, stats, or opinions; if something is unclear, ask. Match the intended tone (formal, casual, technical, and so on); if a voice sample was provided, match it specifically.
-6. **Bring the voice forward.** Removing bad patterns is only half the job. Keep and sharpen the voice the source already has, and add nothing from the Never inject these list. See Personality and soul below.
-7. **Do a final anti-AI pass.** Reread the rewrite asking what still reads as AI generated, fix those lines, and keep this pass in your reasoning rather than in the reply.
-8. **Check the result.** It should sound natural read aloud, vary sentence structure, use specific details over vague claims, and use simple constructions (is/are/has) where appropriate. Then run two whole-piece tests. First, could two body paragraphs swap places without anyone noticing? If so, the piece is a list of points rather than an argument, so report the missing through-line instead of inventing one. Second, does each paragraph add something new? A paragraph that only restates the last one in fresh words should be cut or reported.
-9. **Deliver** per the Output format. If the text came from a file, apply the edit with Edit (targeted) or Write (full rewrite) and show the user what changed.
+1. Read the full input first (use Read if it's a file). Identify the core point; if you cannot, ask the user.
+2. Note 3-5 voice signals to preserve (vocabulary, cadence, bluntness, humor, hedging, digressions). Keep this note internal.
+3. For a detect request, return the findings report described above and stop.
+4. Identify AI patterns. Scan for the 43 patterns listed below.
+5. Rewrite problematic sections following the editing guardrails. Preserve meaning: never invent claims, examples, stats, or opinions; if something is unclear, ask. Match the intended tone (formal, casual, technical, and so on); if a voice sample was provided, match it specifically. If the user or their organization has a written house style, it wins on mechanics such as heading case, quote marks, hyphenation, and spelling. A house style never licenses the AI patterns themselves.
+6. Bring the voice forward. Removing bad patterns is only half the job. Keep and sharpen the voice the source already has, and add nothing from the Never inject these list. See Personality and soul below.
+7. Do a final anti-AI pass. Reread the rewrite asking what still reads as AI generated, fix those lines, and keep this pass in your reasoning rather than in the reply.
+8. Check the result. It should sound natural read aloud, vary sentence structure, use specific details over vague claims, and use simple constructions (is/are/has) where appropriate. Then run two whole-piece tests. First, could two body paragraphs swap places without anyone noticing? If so, the piece is a list of points rather than an argument, so report the missing through-line instead of inventing one. Second, does each paragraph add something new? A paragraph that only restates the last one in fresh words should be cut or reported.
+9. Deliver per the Output format. If the text came from a file, apply the edit with Edit (targeted) or Write (full rewrite) and show the user what changed.
 
 ## Editing guardrails (when the draft is someone's own writing)
 
@@ -61,7 +61,7 @@ Make the minimum effective edit. A rough draft with a real voice should still so
 
 If the user provides a writing sample (their own previous writing), analyze it before rewriting:
 
-1. **Read the sample first.** Note:
+1. Read the sample first, and note:
    - Sentence length patterns (short and punchy? Long and flowing? Mixed?)
    - Word choice level (casual? academic? somewhere between?)
    - How they start paragraphs (jump right in? Set context first?)
@@ -69,9 +69,9 @@ If the user provides a writing sample (their own previous writing), analyze it b
    - Any recurring phrases or verbal tics
    - How they handle transitions (explicit connectors? Just start the next point?)
 
-2. **Match their voice in the rewrite.** Removing AI patterns is only half of it; swap in patterns from the sample as well. If they write short sentences, do not produce long ones. If they use "stuff" and "things," do not upgrade to "elements" and "components."
+2. Match their voice in the rewrite. Removing AI patterns is only half of it; swap in patterns from the sample as well. If they write short sentences, do not produce long ones. If they use "stuff" and "things," do not upgrade to "elements" and "components."
 
-3. **When no sample is provided,** bring forward the voice already in the source text, as described in Personality and soul below.
+3. When no sample is provided, bring forward the voice already in the source text, as described in Personality and soul below.
 
 How to provide a sample:
 - Inline: "Humanize this text. Here's a sample of my writing for voice matching: [sample]"
@@ -91,17 +91,17 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### How to bring voice forward:
 
-**Keep the stance.** If the writer reacted to something, judged it, or doubted it, say so plainly instead of reporting around it. Never create a reaction they didn't have.
+Keep the stance. If the writer reacted to something, judged it, or doubted it, say so plainly instead of reporting around it. Never create a reaction they didn't have.
 
-**Vary your rhythm.** Mix short and long sentences by varying the sentences themselves, not by chopping ordinary ones into fragments.
+Vary your rhythm. Mix short and long sentences by varying the sentences themselves, not by chopping ordinary ones into fragments.
 
-**Acknowledge complexity.** If the source holds mixed feelings, keep both halves. "This is impressive but also kind of unsettling" beats "This is impressive" when the writer felt both.
+Acknowledge complexity. If the source holds mixed feelings, keep both halves. "This is impressive but also kind of unsettling" beats "This is impressive" when the writer felt both.
 
-**Use "I" when the source does.** First person reads as honest when it belongs to a real writer. Keep it where it exists, and don't add it to text that had none.
+Use "I" when the source does. First person reads as honest when it belongs to a real writer. Keep it where it exists, and don't add it to text that had none.
 
-**Leave the writer's mess in.** Their tangents, asides, and half-formed thoughts are human. Keep them rather than tidying everything to the same finish.
+Leave the writer's mess in. Their tangents, asides, and half-formed thoughts are human. Keep them rather than tidying everything to the same finish.
 
-**Be specific with what you have.** Swap vague wording for the numbers, names, and details already in the source. If the detail a sentence needs is missing, flag the gap.
+Be specific with what you have. Swap vague wording for the numbers, names, and details already in the source. If the detail a sentence needs is missing, flag the gap.
 
 ### Before (the writer's notes, then a flattened draft of them):
 > Notes: 3M lines of code overnight?? half of twitter losing it, half saying it doesn't count. honestly can't decide how I feel. kind of unsettling
@@ -589,7 +589,7 @@ The draft never says what Ledgerly actually does, so the next sentence needs a f
 
 ### 35. Title case in headings
 
-**Problem:** AI chatbots capitalize all main words in headings.
+**Problem:** AI chatbots capitalize all main words in headings. Use sentence case unless a written house style requires title case, in which case follow the house style.
 
 **Before:**
 > ## Strategic Negotiations And Global Partnerships
@@ -678,7 +678,7 @@ The draft never says what Ledgerly actually does, so the next sentence needs a f
 
 **Signs to watch:** unfilled placeholders ([Your Name], [INSERT LINK], 2025-XX-XX, <!-- add citation -->), chat citation tokens (citeturn0search0, contentReference[oaicite:0], oai_citation), and links carrying AI tracking parameters (utm_source=chatgpt.com, utm_source=openai, utm_source=perplexity.ai)
 
-**Problem:** These survive copy-paste from a chat window into the deliverable. Any one of them shows the text came out of a chat tool, and a reader who spots one stops trusting the rest. Remove citation tokens and tracking parameters. Fill a placeholder only with content the user supplies, and otherwise flag it.
+**Problem:** These survive copy-paste from a chat window into the deliverable. Any one of them shows the text came out of a chat tool, and a reader who spots one stops trusting the rest. Remove citation tokens and tracking parameters. Fill a placeholder only with content the user supplies, and otherwise flag it. An intentional editorial flag such as [VERIFY: legal] is fine in a working draft, but like any other placeholder it must be resolved before the text is sent.
 
 **Before:**
 > Adoption doubled last year citeturn0search2 ([report](https://example.com/report?utm_source=chatgpt.com)). Contact [Your Name] for details.
@@ -763,8 +763,8 @@ This draft has no writer's voice to bring forward, so the rewrite stays plain. I
 
 ## Attribution and lineage
 
-- **Base:** [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) (WikiProject AI Cleanup), via [blader/humanizer](https://github.com/blader/humanizer) v2.5.1 (MIT, Siqi Chen), extended with additional patterns and the marketing-cliché list. Adapted as a Claude Code skill in July 2026 (text-only, no executable content). MIT license preserved in `LICENSE`.
-- **August 2026:** callout-box layout pattern added from reader feedback; merged the useful parts of [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT, Peter Yang): faux-insight setups, colon reveals, the detect mode, the minimum-effective-edit guardrails, the kicker-deletion rule, and word-list extensions. Patterns regrouped by theme and renumbered 1-37.
-- **October 2026:** merged the useful parts of [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) (MIT, Conor Bronsdon): the Never inject these guardrails, which replace the old advice to add opinions and first person; six new patterns (guesses dressed as facts, aphorism formulas, narrated candor, false concessions, launch-copy introductions, leaked placeholders and tool residue); the two whole-piece tests in the workflow; and the destination-aware rules for curly quotes and hyphenation. Patterns renumbered 1-43.
+- Base: [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) (WikiProject AI Cleanup), via [blader/humanizer](https://github.com/blader/humanizer) v2.5.1 (MIT, Siqi Chen), extended with additional patterns and the marketing-cliché list. Adapted as a Claude Code skill in July 2026 (text-only, no executable content). MIT license preserved in `LICENSE`.
+- August 2026: callout-box layout pattern added from reader feedback; merged the useful parts of [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT, Peter Yang): faux-insight setups, colon reveals, the detect mode, the minimum-effective-edit guardrails, the kicker-deletion rule, and word-list extensions. Patterns regrouped by theme and renumbered 1-37.
+- October 2026: merged the useful parts of [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) (MIT, Conor Bronsdon): the Never inject these guardrails, which replace the old advice to add opinions and first person; six new patterns (guesses dressed as facts, aphorism formulas, narrated candor, false concessions, launch-copy introductions, leaked placeholders and tool residue); the two whole-piece tests in the workflow; and the destination-aware rules for curly quotes and hyphenation. Patterns renumbered 1-43.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
