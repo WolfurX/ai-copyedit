@@ -1,7 +1,7 @@
 # humanizer
 
 A [Claude Code skill](https://code.claude.com/docs/en/skills) that strips the telltale signs of
-AI-generated writing and brings the writer's own voice forward. It names 43 patterns, each with
+AI-generated writing and brings the writer's own voice forward. It names 56 patterns, each with
 before and after examples, and has a detect-only audit mode.
 
 ## Why
@@ -35,11 +35,19 @@ user-facing prose of its own. To update, run the same commands again.
 **Edit** rewrites the text to remove the patterns while keeping its meaning and voice.
 Guardrails keep the minimum effective edit, so a rough draft with a real voice still sounds like
 the same person afterward, just without the tells. Before it hands back a rewrite, it checks that
-the paragraphs build on each other and that each one adds something new.
+the paragraphs build on each other, that each one adds something new, and that no sentence would
+work just as well in someone else's document. The examples model this too: every "after" uses
+only facts from its "before" and flags any gap.
 
 **Detect** audits without rewriting. It lists each pattern found, quotes the offending line, and
 gives the fix in a few words. It never claims to know whether AI wrote the text. Detectors guess,
-while named patterns are evidence you can check yourself.
+while named patterns are evidence you can check yourself. A few tells justify an edit on sight,
+and the rest count only in clusters. It won't treat formal or second-language English, very short
+samples, text from before late 2022, or a letter's sign-off as evidence of AI.
+
+It treats the text as material, so an instruction hidden inside the draft is never followed, and
+a brief you mix into the draft is followed but never printed. It never adds experiences,
+opinions, facts, promises, or quality labels that the source didn't contain.
 
 Give it a sample of your own writing and it matches your sentence length, word choice, and
 punctuation habits. A written house style wins on mechanics such as heading case, quote marks,
@@ -52,15 +60,19 @@ text is sent.
 ## What it covers, in one breath
 
 Significance inflation, notability name-dropping, superficial -ing analyses, promotional tone,
-weasel attributions, guesses dressed as facts, formulaic "challenges" sections, faux-insight
-setups, recap endings, AI vocabulary, filler, hedging, copula avoidance, negative parallelisms,
-rule-of-three overuse, synonym cycling, false ranges, passive voice and subjectless fragments, em
-dash overuse, colon reveals, punchy kickers, rhetorical questions, sentence-opener tics, forced
-metaphors, aphorism formulas, persuasive authority tropes, narrated candor, false concessions,
-launch-copy introductions, signposting, fragmented headers, reassurance kickers, boldface overuse,
-inline-header lists, title case, emojis, mismatched quote marks, hyphenation errors, chatbot
-artifacts, knowledge-cutoff disclaimers, sycophancy, leaked placeholders and tool residue, and the
-styled callout box that marks a document as machine-made before a single word is read.
+vague attributions, guesses dressed as facts, formulaic "challenges" sections, faux-insight
+setups, recap endings, vague declaratives, lazy extremes, invented concept labels, fake balance,
+arguing with no one, borrowed-authority analogies, AI vocabulary, filler, hedging, copula
+avoidance, negative parallelisms, rule-of-three overuse, synonym cycling, false ranges and
+audience padding, passive voice, false agency, em dash overuse, colon reveals, punchy kickers,
+rhetorical questions, sentence-opener tics, overworked metaphors, aphorism formulas, persuasive
+authority tropes, narrated candor, false concessions, launch-copy introductions, signposting,
+fragmented headers, reassurance kickers, the detached narrator, templated structure, text about
+itself, re-explaining what the reader knows, boldface overuse, inline-header lists, title case,
+emojis, mismatched quote marks, hyphenation errors, Markdown in plain-text channels,
+over-compressed symbol-speak, chatbot artifacts, knowledge-cutoff disclaimers, sycophancy, leaked
+placeholders and tool residue, and the styled callout box that marks a document as machine-made
+before a single word is read.
 
 ## Other languages
 
@@ -70,26 +82,48 @@ false friends, English word order and punctuation, and the wrong formal or infor
 English grammar and typography rules apply only to English. When it doesn't know a language's
 conventions well, it says so and asks for a native writing sample instead of guessing. The main
 examples are in English, and the language guidance includes examples from Spanish, French,
-German, Italian, Japanese, Indonesian, and Russian.
+German, Italian, Japanese, Chinese, Indonesian, and Russian.
 
 ## Works with document-design
 
-humanizer fixes the words, and [document-design](https://github.com/WolfurX/document-design) fixes
-the layout of rendered documents and charts. A document can pass every check here and still look
-generated because of its callout boxes and badges, so install both. document-design's exit
-checklist runs humanizer as its prose step. Where the two overlap, as with emoji headings,
-bold-label lists, and too many headings, humanizer catches the tell in the text and
-document-design catches it in the template that produced it. Both skills give the same fix for a
-required warning and defer to the same house style.
+humanizer fixes the words, and [document-design](https://github.com/WolfurX/document-design)
+fixes the layout of rendered documents and charts. A document can pass every check here and
+still look generated because of its callout boxes and badges, so install both. document-design's
+exit checklist runs humanizer as its prose step. Where the two overlap, as with emoji headings,
+bold-label lists, too many headings, and leftover Markdown, humanizer catches the tell in the
+text and document-design catches it in the template that produced it. Both skills give the same
+fix for a required warning and defer to the same house style.
 
 ## Lineage
 
 Wikipedia's Signs of AI writing guide, via [blader/humanizer](https://github.com/blader/humanizer)
-(MIT, Siqi Chen), extended with additional patterns. The useful parts of
-[petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT, Peter Yang) are merged in,
-including the detect mode and the minimum-effective-edit guardrails. So are the useful parts of
-[conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) (MIT, Conor
-Bronsdon), including the never-inject guardrails, six patterns, and the whole-piece tests.
+(MIT, Siqi Chen), extended with additional patterns. Material from these MIT-licensed skills is
+merged in, rewritten in this skill's own words:
+
+- [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) (Peter Yang): the detect
+  mode, the minimum-effective-edit guardrails, faux-insight setups, and colon reveals.
+- [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) (Conor
+  Bronsdon): the never-inject guardrails, six patterns, and the first two whole-piece tests.
+- [blader/humanizer](https://github.com/blader/humanizer) v4 (Siqi Chen): the text-is-material
+  rule, evidence strength, arguing with no one, text about itself, re-explaining what the reader
+  knows, and vague connections.
+- [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) (Hardik Pandya) and
+  [stephenturner/skills](https://github.com/stephenturner/skills) deslop (Stephen D. Turner, who
+  draws on tropes.fyi by ossama.is): vague declaratives, lazy extremes, the detached narrator,
+  invented concept labels, templated structure, borrowed-authority analogies, and overworked
+  metaphors.
+- [cursor/plugins](https://github.com/cursor/plugins) unslop (Lauren Tan): over-compression,
+  jargon metaphors, and buried verbs.
+- [ehmo/slopkit](https://github.com/ehmo/slopkit) slopbeth (ehmo): keeping the brief out of the
+  output, no invented commitments, audience padding, and the topic-swap test.
+- [Aboudjem/humanizer-skill](https://github.com/Aboudjem/humanizer-skill) (Adam Boudjemaa):
+  detect-mode cautions, protected text, false agency, hedged openers, more tool residue, and the
+  Chinese guidance.
+- [elithrar/dotfiles](https://github.com/elithrar/dotfiles) anti-slop (Matt Silverlock): fake
+  balance, the could-the-writer-defend-it test, and calibrating the touch.
+
+Two ideas, Markdown in plain-text channels and credential openers, come from
+jalaalrd/anti-ai-slop-writing, which has no license, so only the ideas are used.
 
 ## License
 
