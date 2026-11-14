@@ -1,14 +1,14 @@
 {
-  "name": "humanizer",
+  "name": "ai-copyedit",
   "description": "Strip AI-writing tells and bring the writer's own voice forward without inventing one, in any language.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": {
     "name": "WolfurX",
     "url": "https://github.com/WolfurX"
   },
-  "homepage": "https://github.com/WolfurX/humanizer",
-  "repository": "https://github.com/WolfurX/humanizer",
+  "homepage": "https://github.com/WolfurX/ai-copyedit",
+  "repository": "https://github.com/WolfurX/ai-copyedit",
   "license": "MIT",
-  "keywords": ["writing", "editing", "humanize", "ai-writing", "prose", "style", "multilingual"],
+  "keywords": ["writing", "editing", "copyedit", "humanize", "ai-writing", "prose", "style", "multilingual"],
   "skills": ["./"]
 }

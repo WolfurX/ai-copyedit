@@ -1,4 +1,4 @@
 interface:
-  display_name: "Humanizer"
+  display_name: "AI Copyedit"
   short_description: "Remove AI tells and keep the writer's voice"
-  default_prompt: "Use $humanizer to rewrite this text so it reads like I wrote it, without changing its facts."
+  default_prompt: "Use $ai-copyedit to rewrite this text so it reads like I wrote it, without changing its facts."

@@ -1,12 +1,12 @@
 ---
-name: humanizer
+name: ai-copyedit
 description: Strip AI-writing tells and bring the writer's own voice forward without inventing one. Use when writing or reviewing prose a person will judge (decks, proposals, emails, replies, captions, docs), when asked to humanize or de-AI a text, or when asked whether a text reads as AI. Covers 56 patterns with before and after examples, plus a detect-only audit mode. Works in any language by writing natively instead of translating from English, and applies its English grammar and typography rules only to English.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "2.0.0"
 ---
 
-# Humanizer: remove AI writing patterns
+# AI copyedit: remove AI writing patterns
 
 A language model writes the most likely next words, so by default it makes the choice that fits the widest range of readers and subjects. A person writes for one reader and one subject, so their choices are uneven and specific. Every pattern below is a form of that default choice. The catalog starts from Wikipedia's "Signs of AI writing" guide (WikiProject AI Cleanup), with the additions listed under Lineage.
 

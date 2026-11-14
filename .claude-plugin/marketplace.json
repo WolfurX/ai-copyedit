@@ -1,18 +1,18 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
-  "name": "wolfurx-humanizer",
+  "name": "wolfurx-ai-copyedit",
   "owner": {
     "name": "WolfurX",
     "url": "https://github.com/WolfurX"
   },
-  "description": "Install humanizer as a Claude Code plugin.",
+  "description": "Install ai-copyedit as a Claude Code plugin.",
   "plugins": [
     {
-      "name": "humanizer",
+      "name": "ai-copyedit",
       "source": "./",
       "description": "Strip AI-writing tells and bring the writer's own voice forward without inventing one, in any language.",
       "license": "MIT",
-      "keywords": ["writing", "editing", "humanize", "ai-writing", "prose", "style", "multilingual"]
+      "keywords": ["writing", "editing", "copyedit", "humanize", "ai-writing", "prose", "style", "multilingual"]
     }
   ]
 }

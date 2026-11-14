@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0 (2026-11-14)
+
+Renamed from humanizer to ai-copyedit.
+
+- The skill, the plugin, and the repository are now named `ai-copyedit`, and the marketplace is
+  `wolfurx-ai-copyedit`. The old repository address redirects to the new one.
+- The rules and patterns are the same as in 1.0.0.
+- If you installed the skill as `humanizer`, remove that copy and install `ai-copyedit`. The
+  README has the commands.
+
 ## 1.0.0 (2026-11-14)
 
 First public release.

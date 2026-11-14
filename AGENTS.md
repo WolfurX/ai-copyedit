@@ -1,6 +1,6 @@
 # Guide for agents
 
-This file explains how to change humanizer without breaking it. The repo holds one agent skill
+This file explains how to change ai-copyedit without breaking it. The repo holds one agent skill
 written in Markdown. It has no build step and runs no code, and it should stay that way.
 
 ## Files
@@ -28,7 +28,7 @@ written in Markdown. It has no build step and runs no code, and it should stay t
   place. Prefer tightening an existing rule over adding a new one.
 - Follow the skill's own rules in every file: no em dashes outside examples, no lists where every
   item opens with a bold label, sentence-case headings, and no invented facts in examples.
-- Keep humanizer and document-design consistent. They give the same fix for a required warning,
+- Keep ai-copyedit and document-design consistent. They give the same fix for a required warning,
   defer to the same house style, require the same flags to be resolved before sending, and refer
   to each other's rules by name.
 - Patterns are numbered from 1 without gaps. If you add, remove, or renumber one, update the
@@ -40,5 +40,5 @@ written in Markdown. It has no build step and runs no code, and it should stay t
 ## Checks before publishing
 
 - Run `claude plugin validate .` and fix anything it reports.
-- Run `npx skills add . --list` and confirm it finds exactly one skill, named `humanizer`.
+- Run `npx skills add . --list` and confirm it finds exactly one skill, named `ai-copyedit`.
 - Keep the frontmatter description under 1,024 characters.
