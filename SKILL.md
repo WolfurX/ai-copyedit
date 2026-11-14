@@ -1,6 +1,6 @@
 ---
 name: humanizer
-description: Strip AI-writing tells and bring the writer's own voice forward without inventing one. Use when writing or reviewing copy for clients (decks, proposals, emails, captions), when asked to humanize/de-AI text or whether a text reads as AI, or before sending any prose deliverable a human will judge. Covers 43 patterns (AI vocabulary, rule-of-three, em dashes, copula avoidance, sycophancy, etc.) with before/after examples, plus a detect-only audit mode. The patterns are language-agnostic; examples are in English.
+description: Strip AI-writing tells and bring the writer's own voice forward without inventing one. Use when writing or reviewing copy for clients (decks, proposals, emails, captions), when asked to humanize/de-AI text or whether a text reads as AI, or before sending any prose deliverable a human will judge. Covers 43 patterns (AI vocabulary, rule-of-three, em dashes, copula avoidance, sycophancy, etc.) with before/after examples, plus a detect-only audit mode. Works in any language by writing natively instead of translating from English, and applies its English grammar and typography rules only to English. Examples are in English.
 ---
 
 # Humanizer: remove AI writing patterns
@@ -19,7 +19,7 @@ Load this skill whenever the user asks to:
 - match their voice in writing they're producing
 - review text for AI tells before publishing
 
-Also apply this skill to **your own** output when writing user-facing prose such as decks, proposals, release notes, docs, and summaries. Client-facing deliverables should read like a busy human wrote them. The patterns below are language-agnostic (rhetorical symmetry, perfect triads, and poetic subtitles are the same tell in any language).
+Also apply this skill to **your own** output when writing user-facing prose such as decks, proposals, release notes, docs, and summaries. Client-facing deliverables should read like a busy human wrote them. Most of the patterns below are the same tell in any language (rhetorical symmetry, perfect triads, and poetic subtitles read as machine-made everywhere). A few are rules of English grammar or typography, so read Writing in other languages before applying them to anything else.
 
 ## How the text arrives
 
@@ -38,7 +38,7 @@ Always show the rewrite to the user. For file edits, show a diff or the changed 
 ## Workflow
 
 1. Read the full input first (use Read if it's a file). Identify the core point; if you cannot, ask the user.
-2. Note 3-5 voice signals to preserve (vocabulary, cadence, bluntness, humor, hedging, digressions). Keep this note internal.
+2. Note the language, locale, and register (for example, European or Brazilian Portuguese, and formal or informal address), plus 3-5 voice signals to preserve (vocabulary, cadence, bluntness, humor, hedging, digressions). Keep this note internal.
 3. For a detect request, return the findings report described above and stop.
 4. Identify AI patterns. Scan for the 43 patterns listed below.
 5. Rewrite problematic sections following the editing guardrails. Preserve meaning: never invent claims, examples, stats, or opinions; if something is unclear, ask. Match the intended tone (formal, casual, technical, and so on); if a voice sample was provided, match it specifically. If the user or their organization has a written house style, it wins on mechanics such as heading case, quote marks, hyphenation, and spelling. A house style never licenses the AI patterns themselves.
@@ -125,9 +125,46 @@ Never add any of the following to a text that didn't already contain it:
 - Forced contrarianism, such as "everyone says X, but they're wrong", unless the source made that argument.
 - Performed candor, such as "let's be honest", "real talk", or "here's the thing".
 - Staccato conversion, meaning ordinary sentences chopped into fragments to fake rhythm.
-- Em dashes. A rewrite should never add one.
+- Em dashes. A rewrite should never add one, except where the language's grammar calls for a dash (see Writing in other languages).
 
 Test every edit by asking where its information and stance came from. If the answer is the source or the user, keep it. Cutting and sharpening are always allowed, but adding personality, stance, or facts is not. These guardrails are adapted from [avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing).
+
+
+## Writing in other languages
+
+A text in another language can avoid every pattern below and still read as machine-made, because it reads as translated. Native readers notice English word order, English idioms rendered word for word, and English punctuation before they notice any single word choice. The goal in every language is text a native writer would have produced from scratch.
+
+### Write natively instead of translating
+
+When the output language is not English, compose directly in that language. Do not draft in English and convert the draft, and do not build English sentence shapes and fill them with foreign words. When the task really is translation, translate the meaning, then reread the result as a native reader who has never seen the English and fix anything that sounds carried over.
+
+### Signs of translated text
+
+- English word order and sentence shape carried over, such as one long English-style sentence where the language would naturally use two, or a different order.
+- English idioms and AI clichés translated word for word. The calque is the same tell as the English original: Spanish "en el panorama actual", French "plongeons dans le sujet", and Indonesian "mari kita selami" all echo English AI vocabulary.
+- English connectors translated onto the front of every paragraph, such as Spanish "Además,", French "De plus," or Indonesian "Selain itu,". This is the same tell as English "Moreover".
+- False friends used in their English sense, such as Spanish "eventualmente" for "eventually" (it means "possibly" or "occasionally") or "actualmente" for "actually" (it means "currently").
+- Pronouns spelled out that the language normally drops. Spanish, Italian, and Japanese leave a clear subject implicit, so "yo", "io", or 私は at the start of sentence after sentence reads as translated.
+- Relative clauses copied from English "which" and "where". In Indonesian, "yang mana" and "di mana" used as relative pronouns are a recognized marker of English-influenced prose.
+- Distinctions English doesn't make, chosen carelessly or inconsistently. These include formal and informal "you" (tú and usted, du and Sie, tu and vous, kamu and Anda), inclusive and exclusive "we" (Indonesian and Malay kita and kami), and grammatical gender. Use what a native writer would use for this reader, and keep it consistent.
+- Anglicisms where an everyday native word exists, especially in formal or official writing. Loanwords the language has fully adopted are fine.
+- English typography, such as title case in Spanish or French headings, capitalized month names in Spanish, French, or Italian, English quote marks, and missing marks such as Spanish ¿ and ¡ or the space that French typography in France puts before : ; ! ?
+- English number and date formats, such as 1,000.50 where the locale writes 1.000,50, or 03/04/2026 where readers will take it as 3 April rather than March 4.
+
+### Which patterns change outside English
+
+Apply the universal patterns as written. These include significance inflation, promotional language, vague attributions, rule of three, synonym cycling, signposting, chatbot artifacts, sycophancy, and most of the substance and rhetoric groups. Adjust the following to the language's own grammar instead of copying the English rule:
+
+- Em dashes (pattern 19). Some languages use dashes grammatically. Russian puts a dash between a noun subject and a noun predicate ("Москва — столица России"), and Spanish and French mark dialogue with a dash. Keep those, and flag only dashes used for English-style drama.
+- Copula avoidance (pattern 13). The fix "use is/are" assumes English. Russian omits the present-tense copula, and translated Indonesian tends to write "adalah seorang" wherever English has "is a". Use whatever a native writer would.
+- Passive voice and subjectless fragments (pattern 18). Indonesian uses the di- passive constantly and naturally, and pro-drop languages leave subjects out. Don't force English-style active sentences or explicit subjects.
+- Title case, curly quotes, and hyphenation (patterns 35, 37, and 38) are English rules. Use the language's own conventions instead. German capitalizes every noun and closes compounds ("Kundenservice", not "Kunden Service"), French uses « » with spaces inside, and German uses „ “.
+- AI vocabulary, filler phrases, and sentence-opener tics (patterns 10, 11, and 23) list English words. Look for their literal translations in the target language, plus whatever that language's AI output overuses.
+- Using "I" only where the source does still holds, but in pro-drop languages first person often lives in the verb ending rather than in a pronoun.
+
+### When you aren't sure
+
+If you don't know a language's conventions well enough to judge, say so and ask for a native sample (see Voice calibration) rather than guessing. A confident edit that imposes English habits does more damage than leaving a sentence alone. In detect mode, report translation tells the same way as the patterns: name the tell, quote the line, and give the fix in a few words.
 
 
 # The 43 patterns
@@ -262,7 +299,7 @@ The guesses about her education and first job are cut. If they matter to the pie
 
 **Marketing and blog clichés (same tell, different register):** at the end of the day, when it comes to, in a world where, moving forward, circle back, deep dive, game-changer, paradigm shift, double down, take a step back, on the same page, make no mistake, it turns out, let me be clear, navigate (for challenges), lean into, unpack (before analysis), straightforward (to describe anything), this is huge, this changes everything, the reality is, the truth is
 
-**Problem:** These words appear far more frequently in post-2023 text. They often co-occur.
+**Problem:** These words appear far more frequently in post-2023 text. They often co-occur. In other languages, see Writing in other languages before applying this pattern.
 
 **Before:**
 > Additionally, a distinctive feature of Somali cuisine is the incorporation of camel meat. An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.
@@ -301,7 +338,7 @@ The guesses about her education and first job are cut. If they matter to the pie
 
 **Words to watch:** serves as/stands as/marks/represents [a], boasts/features/offers [a]
 
-**Problem:** LLMs substitute elaborate constructions for simple copulas.
+**Problem:** LLMs substitute elaborate constructions for simple copulas. In other languages, see Writing in other languages before applying this pattern.
 
 **Before:**
 > Gallery 825 serves as LAAA's exhibition space for contemporary art. The gallery features four separate spaces and boasts over 3,000 square feet.
@@ -362,7 +399,7 @@ The guesses about her education and first job are cut. If they matter to the pie
 
 ### 18. Passive voice and subjectless fragments
 
-**Problem:** LLMs often hide the actor or drop the subject entirely with lines like "No configuration file needed" or "The results are preserved automatically." Rewrite these when active voice makes the sentence clearer and more direct.
+**Problem:** LLMs often hide the actor or drop the subject entirely with lines like "No configuration file needed" or "The results are preserved automatically." Rewrite these when active voice makes the sentence clearer and more direct. In other languages, see Writing in other languages before applying this pattern.
 
 **Before:**
 > No configuration file needed. The results are preserved automatically.
@@ -375,7 +412,7 @@ The guesses about her education and first job are cut. If they matter to the pie
 
 ### 19. Em dash overuse
 
-**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses.
+**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses. In other languages, see Writing in other languages before applying this pattern.
 
 **Before:**
 > The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues—even in official documents.
@@ -589,7 +626,7 @@ The draft never says what Ledgerly actually does, so the next sentence needs a f
 
 ### 35. Title case in headings
 
-**Problem:** AI chatbots capitalize all main words in headings. Use sentence case unless a written house style requires title case, in which case follow the house style.
+**Problem:** AI chatbots capitalize all main words in headings. Use sentence case unless a written house style requires title case, in which case follow the house style. In other languages, see Writing in other languages before applying this pattern.
 
 **Before:**
 > ## Strategic Negotiations And Global Partnerships
@@ -626,7 +663,7 @@ The draft never says what Ledgerly actually does, so the next sentence needs a f
 
 **Signs to watch:** stacked compound modifiers ("a high-quality, well-architected, future-proof solution"), welded noun phrases ("data-source strategy"), split closed compounds ("code-base", "data-set", "road-map"), and attributive hyphens kept after the noun ("updates in real-time", "works out-of-the-box")
 
-**Problem:** AI stacks hyphenated modifiers for an air of precision, and it hyphenates by habit rather than by grammar. Standard usage hyphenates a compound modifier before a noun ("a long-term plan") and leaves it open elsewhere ("planning for the long term"). Keep correct hyphens and established compounds such as "third-party". Cut a stack down to the modifier that matters, and fix the misplaced ones.
+**Problem:** AI stacks hyphenated modifiers for an air of precision, and it hyphenates by habit rather than by grammar. Standard usage hyphenates a compound modifier before a noun ("a long-term plan") and leaves it open elsewhere ("planning for the long term"). Keep correct hyphens and established compounds such as "third-party". Cut a stack down to the modifier that matters, and fix the misplaced ones. In other languages, see Writing in other languages before applying this pattern.
 
 **Before:**
 > Our high-quality, data-driven, future-proof platform updates in real-time and works out-of-the-box with your code-base.

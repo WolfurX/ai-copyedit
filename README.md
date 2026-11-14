@@ -54,6 +54,13 @@ inline-header lists, title case, emojis, mismatched quote marks, hyphenation err
 artifacts, knowledge-cutoff disclaimers, sycophancy, leaked placeholders and tool residue, and
 the styled callout box that marks a document as machine-made before a single word is read.
 
+## Other languages
+
+The skill works in any language. It writes natively instead of drafting in English and
+translating, and it flags the signs of translated text: idioms rendered word for word, false
+friends, English word order and punctuation, and the wrong formal or informal "you". Its English
+grammar and typography rules apply only to English. The examples are in English.
+
 ## Voice calibration
 
 Give it a sample of your own writing and it matches your sentence length, word choice, and
