@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "wolfurx-humanizer",
+  "owner": {
+    "name": "WolfurX",
+    "url": "https://github.com/WolfurX"
+  },
+  "description": "Install humanizer as a Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "humanizer",
+      "source": "./",
+      "description": "Strip AI-writing tells and bring the writer's own voice forward without inventing one, in any language.",
+      "license": "MIT",
+      "keywords": ["writing", "editing", "humanize", "ai-writing", "prose", "style", "multilingual"]
+    }
+  ]
+}

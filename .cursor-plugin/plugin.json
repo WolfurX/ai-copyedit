@@ -1,0 +1,12 @@
+{
+  "name": "humanizer",
+  "description": "Strip AI-writing tells and bring the writer's own voice forward without inventing one, in any language.",
+  "version": "1.0.0",
+  "author": {
+    "name": "WolfurX"
+  },
+  "homepage": "https://github.com/WolfurX/humanizer",
+  "repository": "https://github.com/WolfurX/humanizer",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "humanize", "ai-writing", "prose", "style", "multilingual"]
+}

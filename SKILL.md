@@ -1,6 +1,9 @@
 ---
 name: humanizer
 description: Strip AI-writing tells and bring the writer's own voice forward without inventing one. Use when writing or reviewing prose a person will judge (decks, proposals, emails, replies, captions, docs), when asked to humanize or de-AI a text, or when asked whether a text reads as AI. Covers 56 patterns with before and after examples, plus a detect-only audit mode. Works in any language by writing natively instead of translating from English, and applies its English grammar and typography rules only to English.
+license: MIT
+metadata:
+  version: "1.0.0"
 ---
 
 # Humanizer: remove AI writing patterns
