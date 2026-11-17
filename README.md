@@ -184,6 +184,12 @@ merged in, rewritten in this skill's own words:
   Chinese guidance.
 - [elithrar/dotfiles](https://github.com/elithrar/dotfiles) anti-slop (Matt Silverlock): fake
   balance, the could-the-writer-defend-it test, and calibrating the touch.
+- [vercel-labs/writing-guidelines](https://github.com/vercel-labs/writing-guidelines) (Vercel):
+  spec-sheet verbs, vague quantifiers, adjectives that grade the reader's task, recap openers,
+  and software given bodily actions.
+- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) (Leonxlnx): substitutes for
+  the contrast frame, virtue words, fragment and numeral headings, the stock origin story,
+  stock sample names, and the check for a replacement habit.
 
 Two ideas, Markdown in plain-text channels and credential openers, come from
 jalaalrd/anti-ai-slop-writing, which has no license, so only the ideas are used.
